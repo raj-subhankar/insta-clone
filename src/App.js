@@ -91,7 +91,6 @@ function App() {
   return (
     <div className="app">
 
-      {user?.displayName ? (<ImageUpload username={user.displayName} />) : (<h3>Sorry, you have to signup to upload</h3>)}
       <Modal 
         open={open}
         onClose={() => setOpen(false)}
@@ -173,9 +172,8 @@ function App() {
         <img
         className="app__headerImage"
         src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" />
-      </div>
 
-      {user ? (
+        {user ? (
               <Button onClick={() => auth.signOut()}>Log out</Button>
             ) : (
               <div className="app__loginContainer">
@@ -186,11 +184,16 @@ function App() {
               </div>
             )}
 
+      </div>
+
       {
         posts.map(({id, post}) => (
           <Post key={id} userName={post.userName} caption={post.caption} imageUrl={post.imageUrl} />
         ))
       }
+
+      {user?.displayName ? (<ImageUpload username={user.displayName} />) : (<h3>Sorry, you have to signup to upload</h3>)}
+
     </div>
   );
 }
