@@ -186,11 +186,13 @@ function App() {
 
       </div>
 
-      {
-        posts.map(({id, post}) => (
-          <Post key={id} userName={post.userName} caption={post.caption} imageUrl={post.imageUrl} />
-        ))
-      }
+      <div className="app__posts">
+        {
+          posts.map(({id, post}) => (
+            <Post key={id} postId={id} userName={post.userName} caption={post.caption} imageUrl={post.imageUrl} />
+          ))
+        }
+      </div>
 
       {user?.displayName ? (<ImageUpload username={user.displayName} />) : (<h3>Sorry, you have to signup to upload</h3>)}
 
