@@ -1,1 +1,1 @@
-# Insta clone app using React and Firebase
+# Instagram clone using React and Firebase
